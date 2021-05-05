@@ -1,0 +1,26 @@
+{
+  "name": "node-js-mongodb-reactjs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "node app.js",
+    "client": "cd front_end && npm start",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Quangdat97/Node-JS-MongoDB-Reactjs.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Quangdat97/Node-JS-MongoDB-Reactjs/issues"
+  },
+  "homepage": "https://github.com/Quangdat97/Node-JS-MongoDB-Reactjs#readme",
+  "dependencies": {
+    "concurrently": "^6.0.2",
+    "express": "^4.17.1"
+  }
+}
