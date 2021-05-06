@@ -12,28 +12,25 @@ import {
   Link
 } from "react-router-dom";
 
-
+const getdata = () => axios.get('http://localhost:5000/api').then(res => res.data);
 
 class App extends Component {
-  state = {
-    greeting:''
-  }
-
-  Test = async () => {
-    try {
-    const { data } = await axios.get('http://localhost:5000/api');
-      this.setState({greeting: data.sayHi});
-      console.log(data);
-    } catch (error) {
-      console.log(error.message)
+  constructor(props){
+    super(props);
+    this.state = {
+      greeting:''
     }
-}
 
-componentDidMount(){
-  this.Test(); 
-}
-
+  }
+  
+  componentWillMount() {
+    getdata().then(res=>{
+      this.setState({greeting: res.sayHi})
+    });
+  }
+  
   render(){
+    console.log(this.state.greeting)
     return (
       <Router>
           <div className="App">

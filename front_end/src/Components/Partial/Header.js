@@ -24,7 +24,9 @@ class Header extends Component{
                             <Link to="/category">Product</Link>
                         </button>
                         <span className="bp3-navbar-divider" />
-                        <button className="bp3-button bp3-minimal bp3-icon-user" />
+                        <button className="bp3-button bp3-minimal bp3-icon-user"> 
+                            <Link to="/login">Login</Link>
+                        </button>
                         <button className="bp3-button bp3-minimal bp3-icon-notifications" />
                         <button className="bp3-button bp3-minimal bp3-icon-cog" />
                     </div>
