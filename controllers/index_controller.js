@@ -7,4 +7,7 @@ router.use('/',login_controllers);
 const signup_controllers = require('./signup_controller');
 router.use('/',signup_controllers);
 
+const home_controllers = require('./home_controller');
+router.use('/',home_controllers);
+
 module.exports = router;

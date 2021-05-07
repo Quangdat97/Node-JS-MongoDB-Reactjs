@@ -5,5 +5,5 @@ mongoose.connect('mongodb+srv://quangdattruong:Dat1@quang@cluster0.zdhkx.mongodb
     useUnifiedTopology: true,
     useCreateIndex: true
 })
-.then(()=> console.log('thanh cong'))
+.then(()=> console.log('database connect success!'))
 .catch((err)=>(console.log(err)));

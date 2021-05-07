@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Card, Col, Row, List, Image } from 'antd';
+import {login_click} from '../../router/Link_dieuhuong'
+import Login from '../User/Login';
 
 const data = [
     {
@@ -36,10 +38,18 @@ const data = [
     },
   ];
 
+// const token = localStorage.getItem('token');
+// var decodedToken=jwt.decode(token, {complete: true});
+// var dateNow = new Date();
 
 class Category extends Component{
 
     render(){
+        if(localStorage.getItem('account')===null)
+        {
+            login_click();
+            return <Login></Login>
+        }
         return(
             <div className="content">
                 <List
@@ -55,7 +65,7 @@ class Category extends Component{
                                     placeholder={
                                     <Image
                                         preview={false}
-                                        src = {item.link_img + "x-oss-process=image/blur,r_50,s_50/quality,q_1/resize,m_mfit,h_200,w_200"}
+                                        // src = {item.link_img + "x-oss-process=image/blur,r_50,s_50/quality,q_1/resize,m_mfit,h_200,w_200"}
                                         width={200}
                                     />
                                     }

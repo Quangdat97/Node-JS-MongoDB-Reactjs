@@ -1,12 +1,7 @@
 import React, { Component } from 'react';
 import { Form, Input, Button, Checkbox } from 'antd';
 import axios from 'axios';
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link
-  } from "react-router-dom";
+import {login_click} from '../../router/Link_dieuhuong'
 
 
 const layout = {
@@ -31,8 +26,8 @@ const layout = {
   const onFinish = (values) => {
     add_Account(values.username,values.password,values.confirm_password,values.email)
     .then(response=> {
-        alert(response)
-        document.getElementById("basic").reset();
+        (response=='ok') ? login_click(): alert(response)
+        // document.getElementById("basic").reset();
     });
   };
 
@@ -120,7 +115,7 @@ class Signup extends Component {
                                 Signup
                             </Button>
                             <div className="link_sigup">
-                                Already have an account?<Link type="" to="/login" style={{color: 'white'}}>  Login</Link>
+                                Already have an account?<Button className="link_sigup" type="text" onClick={()=>login_click()} style={{color: 'white'}}>  Login Here</Button>
                             </div>
                         </Form.Item>
                     </Form>
