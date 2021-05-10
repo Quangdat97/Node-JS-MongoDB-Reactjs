@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Form, Input, Button, Checkbox } from 'antd';
 import axios from 'axios';
 import {Signup_click, home_click, login_click} from '../../router/Link_dieuhuong'
-
+import {connect} from 'react-redux'
 
 
 const layout = {
@@ -28,25 +28,23 @@ const add_Account = (username,password) =>(
     console.log('Failed:', errorInfo);
   };
 
+  
 class Login extends Component {
 
-    constructor(props){
-        super(props);
-        this.state = {
-            username:'',
-            password:'',
-        }
-    }
-
+        
     render() {
+        const name_account = async (tmp)=>{
+            await this.props.accountinStore(tmp);
+            await home_click()
+        }
         const onFinish = (values) => {
             add_Account(values.username,values.password)
             .then(response=>{
                 if(response.kq=='ok')
                 {
-                    home_click();
                     localStorage.setItem('account', response.account);
                     localStorage.setItem('token', response.token);
+                    name_account((values.username).toUpperCase());
                 }
                 else 
                 {
@@ -109,6 +107,21 @@ class Login extends Component {
             </div>
         );
     }
+    
 }
 
-export default Login;
+const mapStateToProps = (state, ownProps) => {
+    return {
+        account: state.account
+    }
+}
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+    return {
+        accountinStore: (tmp) => {
+            dispatch({type:'change account',account:tmp})
+        }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login)

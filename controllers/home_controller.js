@@ -1,23 +1,28 @@
 const express = require('express');
 const router = express.Router();
+const bodyParser = require('body-parser');
+
+router.use(bodyParser.urlencoded({ extended: false }));
+router.use(bodyParser.json());
 
 const bcrypt = require('bcrypt');
 const UserModel = require('../models/user_model');
-// const TokenModel = require('../models/token_models');
+
 const jwt = require('jsonwebtoken');
 
-var LocalStorage = require('node-localstorage').LocalStorage;
-localStorage = new LocalStorage('./cratch');
-router.get('/',(req,res)=>{
+router.post('/verify',(req,res)=>{
+    console.log(req.body.token);
     serectKey = '@#$%';
-    jwt.verify(localStorage.getItem('token'),serectKey,(err,data)=>{
+    jwt.verify(req.body.token,serectKey,(err,data)=>{
         if(err)
         {
+            console.log(err);
             res.send({kq:'err'});
         }
         else
         {
-            res.send({kq:'ok', account:localStorage.getItem('account')});
+            console.log(data);
+            res.send({kq:'ok'});
         }
     });
 });

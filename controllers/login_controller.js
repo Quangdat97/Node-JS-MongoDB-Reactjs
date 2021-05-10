@@ -34,7 +34,7 @@ router.post('/login',(req,res)=>{
                                     status: data[0].status
                                 }
                         serectKey = '@#$%';
-                        token = jwt.sign(payload,serectKey, {expiresIn: 60}); //expiresIn: 120 la thoi gian 120s
+                        token = jwt.sign(payload,serectKey, {expiresIn: 3600}); //expiresIn: 120 la thoi gian 120s
 
                         localStorage.setItem('token',token);
                         localStorage.setItem('account',(data[0].username).toUpperCase());

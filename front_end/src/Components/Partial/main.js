@@ -2,14 +2,11 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import {login_click} from '../../router/Link_dieuhuong'
 import Login from '../User/Login';
-import decode from 'jwt-decode'
 
-// const token = localStorage.getItem('token');
-// var decodedToken=jwt.decode(token, {complete: true});
-// var dateNow = new Date();
 
 class Main extends Component{
     render(){
+        console.log(window.Redux)
         if(localStorage.getItem('account')===null)
         {
             login_click();

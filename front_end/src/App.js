@@ -9,19 +9,13 @@ import Login from './Components/User/Login';
 
 
 
-class App extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      _login:localStorage.getItem('account'),
-    }
 
-  }
+class App extends Component {
   
   render(){
     return (
       <div className="App">
-        <Header login={this.state._login}></Header>
+        <Header ></Header>
         <Router>
           <Category path='/category'></Category>
           <Signup path='/signup'></Signup>
@@ -33,5 +27,6 @@ class App extends Component {
     );
   };
 }
+
 
 export default App;
