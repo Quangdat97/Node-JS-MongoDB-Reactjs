@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card, Col, Row, List, Image } from 'antd';
+import { Card,List, Image } from 'antd';
 import {login_click} from '../../router/Link_dieuhuong'
 import Login from '../User/Login';
 
@@ -37,10 +37,6 @@ const data = [
         img_name: 'One Star Love the Progress'
     },
   ];
-
-// const token = localStorage.getItem('token');
-// var decodedToken=jwt.decode(token, {complete: true});
-// var dateNow = new Date();
 
 class Category extends Component{
 

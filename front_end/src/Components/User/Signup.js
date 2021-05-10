@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Form, Input, Button, Checkbox } from 'antd';
+import { Form, Input, Button} from 'antd';
 import axios from 'axios';
 import {login_click} from '../../router/Link_dieuhuong'
 
@@ -36,14 +36,6 @@ const layout = {
   };
 
 class Signup extends Component {
-
-    constructor(props){
-        super(props);
-        this.state = {
-            username:'',
-            password:'',
-        }
-    }
 
     render() {
         return (

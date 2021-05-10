@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import {login_click} from '../../router/Link_dieuhuong'
 import Login from '../User/Login';
 
 
 class Main extends Component{
     render(){
-        console.log(window.Redux)
         if(localStorage.getItem('account')===null)
         {
             login_click();
