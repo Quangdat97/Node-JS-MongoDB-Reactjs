@@ -16,6 +16,7 @@ class App extends Component {
     return (
       <div className="App">
         <Header ></Header>
+        
         <Router>
           <Category path='/category'></Category>
           <Signup path='/signup'></Signup>
