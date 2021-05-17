@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-// // Add headers
+// Add headers
 app.use(function (req, res, next) {
     res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
@@ -16,7 +16,7 @@ app.use(function (req, res, next) {
     next();
 });
 
-//goi database
+//Goi Databases
 require('./database');
 
 const index_controllers = require('./controllers/index_controller.js');
